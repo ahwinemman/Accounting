@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from mdbootstrap.com/live/_MDB/templates/Admin/clients.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Aug 2017 15:21:37 GMT -->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Accounting</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href='css/bootstrap.min.css' rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href='css/mdb.min.css' rel="stylesheet">
+
+    <!-- Customizer -->
+    <link rel="stylesheet" href='css/customizer.min.css'>
+
+    <!-- Your custom styles (optional) -->
+    <link href='css/style.css' rel="stylesheet">
+
+</head>
+
+<body class="fixed-sn white-skin">
+
+   
+    <!--Double navigation-->
+    <header>
+       <!-- Sidebar navigation -->
+ <ul id="slide-out" class="side-nav fixed sn-bg-1 custom-scrollbar">
+            <!-- Logo -->
+            <li>
+                <div class="user-box">
+                    
+                    <p class="user text-center black-text">Business Name</p>
+                </div>
+            </li>
+            <!--/. Logo -->
+            <!-- Side navigation links -->
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-code"></i> Dashboard<i class="fa fa-angle-down rotate-icon"></i></a></li>
+                    <li><a href="http://192.168.137.1/mobile/customer" class="collapsible-header waves-effect arrow-r"><i class="fa fa-pie-chart"></i> Customers</a></li>
+                </ul>
+            </li>
+            <!--/. Side navigation links -->
+            <div class="sidenav-bg mask-strong"></div>
+        </ul>
+        <!--/. Sidebar navigation -->
+        
+        <!-- Navbar -->
+        <nav class="mb-1 navbar navbar-expand-lg navbar-inverse scrolling-navbar double-nav">
+
+            <!-- SideNav slide-out button -->
+            <div class="float-left">
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <!-- Breadcrumb-->
+            <ol class="breadcrumb hidden-lg-down">
+                <li class="breadcrumb-item active">Customers</li>
+            </ol>    
+        </nav>
+        <!-- /.Navbar -->
+        </header>
+    <!--/.Double navigation-->
+    <main class="">
+<div class="container-fluid">
+    <!-- First row -->
+    <div class="row">
+        <!-- First column -->
+        <!-- Tab panels -->
+        <div class="col-sm-12">
+                    <div style = "padding:0" class="tab-content card">
+                        <button type="button" id="add" data-toggle="modal" data-target="#customerModal" class="btn btn-primary">ADD NEW CUSTOMER</button>
+                        <!--Panel 1-->
+                        <div class="tab-pane fade show active" id="panel83" role="tabpanel">  
+                      
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Address</th>
+                                            <th>Phone</th>
+                                            <th>Opening Balance</th>
+                                            <th>Started</th>
+                                            <th>Account Number</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="data">
+                                      
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                        
+                        </div>
+                        <!--/.Panel 1-->
+                       
+                    </div>
+                    <!-- /.Tabs -->
+                </div>
+    </div>
+    <!-- /.First row -->
+</div>
+   
+
+   <!-- Modal -->
+<div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="customerModalLabel">Customer Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <form id="customerForm" method = "post" url = "/mobile/customer">
+                        {{csrf_field()}}
+                        <div class="form-group">
+                          <label for="firstname">First Name</label>
+                          <input type="text" class="form-control" placeholder="First Name..." id="firstname" name="firstname" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                          <label for="lastname">Last Name</label>
+                          <input type="text" class="form-control" placeholder="Last Name..." id="lastname" name="lastname" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                          <label for="address">Address</label>
+                          <input type="text" class="form-control" placeholder="Address..." id="address" name="address" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                          <label for="phone">Phone Number</label>
+                          <input type="text" class="form-control" placeholder="Phone Number..." id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input type ="text" class="form-control" placeholder="Email..." id="email" name="email" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                          <label for="openingbalance">Opening Balance</label>
+                          <input type ="number" class="form-control" placeholder="Opening Balance..." id="openingbalance" name="openingbalance" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                          <label for="bank">Bank</label>
+                          <input type ="text" class="form-control" placeholder="Bank Name..." id="bank" name="bank" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                          <label for="accountname">Account Name</label>
+                          <input type ="text" class="form-control" placeholder="Account Name..." id="accountname" name="accountname" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                          <label for="accountnumber">Account Number</label>
+                          <input type ="text" class="form-control" placeholder="Account Number..." id="accountnumber" name="accountnumber" autocomplete="off">
+                        </div>
+                        <div class="modal-footer">
+                    <a class="btn btn-primary btn-green" onClick="updateCustomer()" name="change" id="change" style="display:none">Update</a>
+                    <button type="submit" class="btn btn-primary" id="save">Add</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+<!-- End of main layout -->
+
+<script type="text/javascript" src='js/jquery-3.1.1.min.js'></script>
+    <script>
+    $("#navigation").load("components/navigation.html");
+    </script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src='js/popper.min.js'></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src='js/bootstrap.min.js'></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src='js/mdb.min.js'></script>
+    <!-- Customizer -->
+    <script type="text/javascript" src='js/customizer.min.js'></script>
+    
+    <script>
+        // Data Picker Initialization
+        $('.datepicker').pickadate();
+
+
+        // Material Select Initialization
+        $(document).ready(function() {
+            $('.mdb-select').material_select();
+        });
+
+        // Sidenav Initialization
+        $(".button-collapse").sideNav();
+        var el = document.querySelector('.custom-scrollbar');
+        Ps.initialize(el);
+
+        // Tooltips Initialization
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        })
+    </script>
+    <script type="text/javascript">
+
+         var customer_id;
+ $(document).ready(function(){
+   
+  $('#add').click(function(){
+      $('#customerForm')[0].reset();
+      $('#save').show();
+      $('#change').hide();
+  });
+
+    
+     var url = "http://192.168.137.1/mobile/json";
+     
+     $.getJSON(url, function(data){
+         var customer = data.customer;
+         var tenant = data.tenant;
+         if (customer){
+            console.log(data);
+         $.each(customer, function(index, value){
+             var id = value.id;
+             var firstname = value.first_name;
+             var lastname = value.last_name;
+             var address = value.address;
+             var phone = value.telephone_no;
+             var openingbalance = value.opening_balance;
+             var started = value.created_at;
+             var accountnumber = value.account_number;
+           
+            $('.data').append("<tr><td>"+firstname+"</td><td>"+lastname+"</td><td>"+address+"</td><td>"+phone+"</td><td>"+openingbalance+"</td><td>"+started+"</td><td>"+accountnumber+"</td><td><button type='button' style='margin:0; margin-bottom:10px'onClick='getInfo("+id+")' data-toggle='modal' data-target='#customerModal' class='btn btn-primary btn-sm' id='update' title='Update Customer'>Update</button> <a style='margin:0;' href = 'http://127.0.0.1:8000/mobile/customer/"+id+"' class='btn btn-danger btn-sm' title='Delete Customer'>Delete</a></td></tr>");
+         });    
+         }
+         else {
+             $('.data').append("<h6>You have no customers yet</h6>");
+         }
+       
+         
+     });
+
+
+});
+
+$('#customerForm').on('keyup keypress', function(e) {
+  var keyCode = e.keyCode || e.which;
+  if (keyCode === 13) { 
+e.preventDefault();
+    return false;
+  }
+});
+
+
+
+    function updateCustomer() {
+         
+          var firstname=$('#firstname').val();
+          var lastname=$('#lastname').val();
+          var address=$('#address').val();
+          var phone=$('#phone').val();
+          var email=$('#email').val();
+          var openingbalance=$('#openingbalance').val();
+          var bank=$('#bank').val();
+          var tenant=$('#tenant').val();
+          var accountname=$('#accountname').val();
+          var accountnumber=$('#accountnumber').val();      
+      
+          $.ajax({
+            url:"http://192.168.1.8/mobile/customer/update/"+customer_id,
+            method:'post',
+            data:{
+                  "firstname":firstname,
+                  "lastname":lastname,
+                  "address":address,
+                  "phone":phone,
+                  "email":email,
+                  "openingbalance":openingbalance,
+                  "tenant":tenant,
+                  "bank":bank,
+                  "accountname":accountname,
+                  "accountnumber":accountnumber,
+                  "_token": $('input[name=_token]').val()
+                  },
+            success:function(response){
+            $('#customerModal').modal('hide');
+            alert('record successfully updated');
+            location.reload();
+            }
+        })
+        
+    }
+
+    function getInfo(id) {
+            
+         $('#save').hide();
+         $('#change').show();
+      customer_id = id;
+        $.ajax({
+            url:"http://192.168.137.1/mobile/customer/edit/"+customer_id,
+            method:'get',
+            success:function(response){
+                var customer = response.customer;
+                $('#firstname').val(customer.first_name);
+                $('#lastname').val(customer.last_name);
+                $('#address').val(customer.address);
+                $('#phone').val(customer.telephone_no);
+                $('#email').val(customer.email);
+                $('#openingbalance').val(customer.opening_balance);
+                $('#bank').val(customer.bank_name);
+                $('#accountname').val(customer.account_name);
+                $('#accountnumber').val(customer.account_number);
+              }
+        })
+    }
+
+
+    
+</script>
